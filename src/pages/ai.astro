@@ -1,0 +1,198 @@
+---
+// Lapa pagaidām nav navigācijā — pieejama ar tiešo saiti /ai/ un ir sitemap.
+import Layout from '../layouts/Layout.astro';
+import aiFiles from '../data/ai_files.json';
+---
+
+<Layout
+  title="Pēti partiju programmas ar mākslīgo intelektu | Lasi viegli"
+  description="Visu 14 kandidātu sarakstu programmas Markdown formātā — lejupielādei un analīzei ar mākslīgā intelekta rīkiem."
+  ogImage="/og/ai.png"
+>
+  <div class="wrap">
+    <div class="page prose ai-page">
+      <h1>Pēti partiju programmas ar mākslīgo intelektu</h1>
+
+      <p>
+        Šeit var lejupielādēt visu 14 kandidātu sarakstu <strong>oriģinālās</strong> priekšvēlēšanu
+        programmas Markdown (<code>.md</code>) failos. Faili ir sagatavoti tā, lai tos būtu ērti
+        pievienot mākslīgā intelekta rīkiem — piemēram, Claude, Gemini vai ChatGPT — un uzdot
+        savus jautājumus par programmām.
+      </p>
+
+      <h2>Kas ir Markdown?</h2>
+      <p>
+        Markdown ir parasts teksts ar dažām vienkāršām zīmēm: <code>#</code> apzīmē virsrakstu,
+        <code>-</code> — saraksta punktu, <code>**zvaigznītes**</code> — treknrakstu.
+      </p>
+      <p>
+        Failu var atvērt jebkurā teksta redaktorā, arī Piezīmju blokā (Notepad).
+        AI rīkiem šīs zīmes palīdz saprast teksta struktūru, tāpēc atbildes ir precīzākas.
+      </p>
+
+      <h2>Kā lietot failus ar AI?</h2>
+      <ol>
+        <li>Lejupielādē vienu vai vairākus failus no šīs lapas.</li>
+        <li>Atver AI rīku pārlūkā: <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>, <a href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a> vai <a href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a>.</li>
+        <li>Pievieno failu sarunai — parasti ar saspraudes <span aria-hidden="true">📎</span> pogu vai ievelkot failu čata logā.</li>
+        <li>Uzraksti savu jautājumu un nosūti.</li>
+      </ol>
+
+      <h3>Jautājumu piemēri</h3>
+      <p>Ja pievienots <strong>viens fails</strong> (viena programma):</p>
+      <ul>
+        <li>„Ko šī programma sola senioriem? Citē konkrētās vietas tekstā.”</li>
+        <li>„Kuri solījumi šajā programmā ir konkrēti — ar summām, skaitļiem vai termiņiem — un kuri ir tikai vispārīgi vārdi?”</li>
+      </ul>
+      <p>Ja pievienoti <strong>daži faili</strong> (2–4 programmas):</p>
+      <ul>
+        <li>„Izveido tabulu: ko katra no šīm partijām sola nodokļu politikā?”</li>
+        <li>„Kur šīs programmas ir tiešā pretrunā viena otrai? Citē abas vietas.”</li>
+      </ul>
+      <p>Ja pievienots <strong>kopīgais fails</strong> (visas 14 programmas):</p>
+      <ul>
+        <li>„Visas programmas runā par drošību un aizsardzību. Sagrupē partijas pēc līdzīgām nostājām un paskaidro atšķirības.”</li>
+        <li>„Kuras programmas piemin mākslīgo intelektu, un ko tās ar to grib darīt?”</li>
+        <li>„Ko partijas sola cilvēkiem ar invaliditāti? Vai kāda piemin vides un pakalpojumu piekļūstamību?”</li>
+        <li>„Atrodi solījumus, kas prasa lielus valsts izdevumus, bet nenorāda, no kā tos finansēs.”</li>
+        <li>„Sarindo programmas pēc tā, cik daudz tajās ir izmērāmu solījumu (summas, termiņi, procenti).”</li>
+      </ul>
+
+      <div class="hint">
+        <p>
+          <strong>Padoms.</strong> Ja gribi salīdzināt dažas partijas, pievieno tikai to failus —
+          atbildes būs precīzākas. Ja jautājums ir par visām partijām uzreiz, ērtāk ir viens
+          kopīgais fails.
+        </p>
+        <p>
+          <strong>Atceries.</strong> AI var kļūdīties vai ko sajaukt. Svarīgas lietas vienmēr
+          pārbaudi pašā programmas tekstā — faila sākumā ir saite uz oriģinālu CVK lapā.
+        </p>
+      </div>
+
+      <h2 id="lejupieladet-visas">Lejupielādēt visas programmas uzreiz</h2>
+      <ul class="dl-all" role="list">
+        <li>
+          <a class="btn primary" href={`/ai/${aiFiles.combined.file}`} download>
+            Visas 14 programmas vienā failā (.md, {aiFiles.combined.kb} KB)
+          </a>
+        </li>
+        <li>
+          <a class="btn secondary" href={`/ai/${aiFiles.zip.file}`} download>
+            Visi faili ZIP arhīvā (.zip, {aiFiles.zip.kb} KB)
+          </a>
+        </li>
+      </ul>
+      <p class="note-small">
+        ZIP arhīvā ir 14 atsevišķie faili un kopīgais fails. Kopīgajā failā katra programma
+        sākas ar savu virsrakstu un norādi uz avotu.
+      </p>
+
+      <h2 id="lejupieladet-pa-vienai">Lejupielādēt pa vienai programmai</h2>
+      <p class="note-small">Saraksti ir vēlēšanu numuru secībā. Mēs nevienu sarakstu neizceļam un nevienu neiesakām.</p>
+      <ul class="dl-list" role="list">
+        {
+          aiFiles.files.map((f) => (
+            <li>
+              <span class="num" aria-hidden="true">{f.n}</span>
+              <span class="pname" id={`ai-pname-${f.n}`}>{f.name}</span>
+              <a
+                id={`ai-dl-${f.n}`}
+                href={`/ai/${f.file}`}
+                download
+                aria-labelledby={`ai-dl-${f.n} ai-pname-${f.n}`}
+              >
+                Lejupielādēt (.md, {f.kb} KB)
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Šī lapa nav vieglās valodas saturs — teksts parastā izmērā */
+  .ai-page { font-size: 1.0625rem; }
+  .ai-page h2 { font-size: 1.35em; }
+  .ai-page h3 { font-size: 1.1em; margin: 1.4em 0 0.4em; }
+
+  /* Satura saraksti (ne lejupielāžu): atkāpe no kreisās puses,
+     vienāda atstarpe virs un zem saraksta */
+  .ai-page :is(ul, ol):not(.dl-all):not(.dl-list) {
+    padding-left: 1.75em;
+    margin: 1em 0;
+  }
+  .ai-page :is(ul, ol):not(.dl-all):not(.dl-list) li {
+    margin: 0 0 0.5em;
+    padding-left: 0.25em;
+  }
+  .ai-page :is(ul, ol):not(.dl-all):not(.dl-list) li:last-child {
+    margin-bottom: 0;
+  }
+
+  .hint {
+    margin: var(--space-5) 0;
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border-default);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+  }
+  .hint p { margin: 0 0 var(--space-2); }
+  .hint p:last-child { margin-bottom: 0; }
+
+  .note-small {
+    color: var(--color-text-secondary);
+    font-size: var(--type-label-size);
+  }
+
+  .dl-all {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 var(--space-3);
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .dl-all li { margin: 0; }
+
+  .dl-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0;
+  }
+  .dl-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-1) var(--space-4);
+    align-items: center;
+    padding: var(--space-4);
+    margin: 0 0 var(--space-3);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+  .dl-list .num {
+    grid-row: 1 / span 2;
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .dl-list .pname { font-weight: 600; line-height: 1.35; }
+  .dl-list a { width: fit-content; font-size: var(--type-label-size); }
+
+  code {
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-sm);
+    padding: 1px 5px;
+    font-size: 0.9em;
+  }
+</style>

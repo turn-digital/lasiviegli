@@ -9,9 +9,11 @@ interface Props {
   description: string;
   /** Ceļš uz OG attēlu no public/, piem. "/og/progresivie.png" */
   ogImage?: string;
+  /** Neindeksējamām lapām, kas pieejamas tikai ar tiešo saiti */
+  noindex?: boolean;
 }
 
-const { title, description, ogImage = '/og/sakumlapa.png' } = Astro.props;
+const { title, description, ogImage = '/og/sakumlapa.png', noindex = false } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(ogImage, Astro.site);
 ---
@@ -29,6 +31,7 @@ const ogImageUrl = new URL(ogImage, Astro.site);
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Sociālo mediju kartītes (Open Graph + Twitter) -->
     <meta property="og:type" content="website" />
