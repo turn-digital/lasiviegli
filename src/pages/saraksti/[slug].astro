@@ -23,20 +23,20 @@ const { Content: EasyContent, headings } = await render(easyEntry);
 const { Content: OrigContent } = await render(origEntry);
 const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 
-// Partijas OG attēls sociālajiem medijiem; ja tāda nav — sākumlapas attēls
+// Saraksta OG attēls sociālajiem medijiem; ja tāda nav — sākumlapas attēls
 const ogImage = existsSync(new URL(`../../../public/og/${party.slug}.png`, import.meta.url))
   ? `/og/${party.slug}.png`
   : '/og/sakumlapa.png';
 ---
 
 <Layout
-  title={`${party.name} — programma vieglajā valodā | Lasi viegli`}
-  description={`Partijas ${party.name} 2026. gada Saeimas vēlēšanu programma vieglajā valodā — īsi teikumi un saprotami vārdi. Blakus cilnē var salīdzināt ar oriģinālo tekstu.`}
+  title={`${party.name} programma vieglajā valodā | Lasi viegli`}
+  description={`Saraksta ${party.name} 2026. gada Saeimas vēlēšanu programma vieglajā valodā. Īsi teikumi un saprotami vārdi. Blakus cilnē var salīdzināt ar oriģinālo tekstu.`}
   ogImage={ogImage}
 >
   <div class="wrap">
     <nav class="crumbs" aria-label="Atrašanās vieta">
-      <a href="/#partijas">Visas partijas</a>
+      <a href="/#saraksti">Visi saraksti</a>
       <span aria-hidden="true"> › </span>
       <span aria-current="page">{party.name}</span>
     </nav>
@@ -67,11 +67,6 @@ const ogImage = existsSync(new URL(`../../../public/og/${party.slug}.png`, impor
           aria-controls="panel-orig">Oriģināls</button
         >
       </div>
-      <div class="textsize">
-        <span id="ts-label">Teksta izmērs</span>
-        <button type="button" aria-label="Samazināt teksta izmēru" data-scale="-1">A−</button>
-        <button type="button" aria-label="Palielināt teksta izmēru" data-scale="1">A+</button>
-      </div>
     </div>
 
     <div class="prog-layout">
@@ -84,7 +79,7 @@ const ogImage = existsSync(new URL(`../../../public/og/${party.slug}.png`, impor
           <div class="readability-note">
             <span class="icon" aria-hidden="true">i</span>
             <p>
-              Šis ir partijas iesniegtais programmas teksts. Vārdi nav mainīti. Mēs uzlabojām
+              Šis ir saraksta iesniegtais programmas teksts. Vārdi nav mainīti. Mēs uzlabojām
               tikai noformējumu — pievienojām virsrakstus, rindkopas un sarakstus, lai tekstu
               būtu vieglāk lasīt. <a href={party.sourceUrl}>Oriģināls CVK lapā</a>.
             </p>
@@ -138,25 +133,6 @@ const ogImage = existsSync(new URL(`../../../public/og/${party.slug}.png`, impor
           e.preventDefault();
           selectTab((i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length, true);
         }
-      });
-    });
-
-    // Teksta izmērs: soļi no -1 līdz +2, saglabājas localStorage —
-    // darbojas abās cilnēs un visās partiju lapās
-    let scaleStep = 0;
-    try {
-      scaleStep = Math.min(2, Math.max(-1, parseInt(localStorage.getItem('textScale') || '0', 10) || 0));
-    } catch {}
-    document.querySelectorAll<HTMLButtonElement>('.textsize button[data-scale]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        scaleStep = Math.min(2, Math.max(-1, scaleStep + Number(btn.dataset.scale)));
-        document.documentElement.style.setProperty(
-          '--content-scale',
-          (1 + scaleStep * 0.15).toFixed(2),
-        );
-        try {
-          localStorage.setItem('textScale', String(scaleStep));
-        } catch {}
       });
     });
 

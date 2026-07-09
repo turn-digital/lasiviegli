@@ -40,8 +40,6 @@
   --type-label-size: 0.875rem;
   --type-button-size: 1.125rem;
   --type-logo-size: 1.125rem;
-
-  --content-scale: 1;
 }
 
 /* Tumšā tēma — atvasināta no DS surface-inverse neitrāļiem */
@@ -314,25 +312,11 @@ main { flex: 1; }
   content: attr(data-label); display: block; height: 0;
   font-weight: 700; visibility: hidden; overflow: hidden;
 }
-.textsize {
-  display: flex; align-items: center; gap: var(--space-2);
-  color: var(--color-text-secondary); font-size: var(--type-label-size);
-  padding-bottom: var(--space-2);
-}
-.textsize button {
-  font-family: var(--font-sans); font-weight: 700; cursor: pointer;
-  min-width: 44px; min-height: 38px;
-  border: 1px solid var(--color-accent); border-radius: var(--radius-sm);
-  background: var(--color-surface-raised); color: var(--color-accent);
-}
-.textsize button:hover { background: var(--color-accent-fill); border-color: var(--color-accent-fill); color: var(--color-on-accent); }
-.textsize button:first-of-type { font-size: .85rem; }
-.textsize button:last-of-type { font-size: 1.05rem; }
-
 .prog-layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: var(--space-8); margin-top: var(--space-4); }
 @media (max-width: 1000px) { .prog-layout { grid-template-columns: 1fr; } .toc { display: none; } }
 
-.prose { font-size: calc(1rem * var(--content-scale)); line-height: 1.5; max-width: 65ch; }
+/* Programmas teksts noklusēti lielā izmērā — vieglās valodas lasītājiem */
+.prose { font-size: 1.3rem; line-height: 1.5; max-width: 65ch; }
 .prose h2 { font-size: 1.5em; line-height: 1.35; margin: 1.8em 0 .6em; }
 .prose h3 { font-size: 1.2em; line-height: 1.4; margin: 1.5em 0 .5em; }
 .prose p { margin: 0 0 1em; }

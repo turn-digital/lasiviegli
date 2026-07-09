@@ -41,14 +41,10 @@ const ogImageUrl = new URL(ogImage, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     <script is:inline>
-      // Pirms renderēšanas, lai tēma un teksta izmērs nemirgo
+      // Pirms renderēšanas, lai tēma nemirgo
       const saved = localStorage.getItem('theme');
       if (saved === 'light' || saved === 'dark') {
         document.documentElement.dataset.theme = saved;
-      }
-      const ts = parseInt(localStorage.getItem('textScale') || '0', 10);
-      if (ts >= -1 && ts <= 2 && ts !== 0) {
-        document.documentElement.style.setProperty('--content-scale', (1 + ts * 0.15).toFixed(2));
       }
     </script>
     <!-- Privacy-friendly analytics by Plausible -->
@@ -81,13 +77,15 @@ const ogImageUrl = new URL(ogImage, Astro.site);
       <div class="inner">
         <p>
           Programmu oriģināli ir no Centrālās vēlēšanu komisijas
-          lapas <a href="https://dati.cvk.lv/SV2026/kandidatu-saraksti/">dati.cvk.lv</a>.
+          lapas <a href="https://dati.cvk.lv/SV2026/kandidatu-saraksti/" target="_blank" rel="noopener">dati.cvk.lv</a>.
           Vieglās valodas versijas sagatavoja mākslīgais intelekts, pārbaudīja cilvēki.
         </p>
-        <p>Projektu veido <a href="https://www.pieklustamiba.lv/">Piekļūstamība.lv</a>.</p>
+        <p>
+          Projektu veido <a href="https://www.pieklustamiba.lv/" target="_blank" rel="noopener">Piekļūstamība.lv</a>.
+        </p>
         <p>
           Vai tev arī vajag pārvērst tekstu vieglajā
-          valodā? Izmēģini <a href="https://rakstiviegli.lv/">Raksti viegli</a> — rīku,
+          valodā? Izmēģini <a href="https://rakstiviegli.lv/" target="_blank" rel="noopener">Raksti viegli</a> — rīku,
           kas latviešu valodas tekstu automātiski pārraksta vieglajā valodā: īsos teikumos
           un saprotamos vārdos.
         </p>
