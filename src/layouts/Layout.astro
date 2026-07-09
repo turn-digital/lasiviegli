@@ -1,0 +1,109 @@
+---
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-sans/700.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Ceļš uz OG attēlu no public/, piem. "/og/progresivie.png" */
+  ogImage?: string;
+}
+
+const { title, description, ogImage = '/og/sakumlapa.png' } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL(ogImage, Astro.site);
+---
+
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Sociālo mediju kartītes (Open Graph + Twitter) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lasi viegli" />
+    <meta property="og:locale" content="lv_LV" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <script is:inline>
+      // Pirms renderēšanas, lai tēma un teksta izmērs nemirgo
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.dataset.theme = saved;
+      }
+      const ts = parseInt(localStorage.getItem('textScale') || '0', 10);
+      if (ts >= -1 && ts <= 2 && ts !== 0) {
+        document.documentElement.style.setProperty('--content-scale', (1 + ts * 0.15).toFixed(2));
+      }
+    </script>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script is:inline async src="https://plausible.io/js/pa-GzRUCRGxoeOeBgzrNtRh8.js"></script>
+    <script is:inline>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#saturs">Pāriet uz saturu</a>
+    <header class="site-head">
+      <div class="inner">
+        <a class="brand" href="/">
+          <span class="flag" aria-hidden="true"></span>
+          <b>Lasi viegli</b>
+        </a>
+        <div class="head-actions">
+          <button class="theme-toggle" type="button" aria-label="Pārslēgt gaišo vai tumšo tēmu">
+            <span class="moon" aria-hidden="true">☾</span>
+            <span class="sun" aria-hidden="true">☀</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="saturs">
+      <slot />
+    </main>
+    <footer class="site-foot">
+      <div class="inner">
+        <p>
+          Programmu oriģināli ir no Centrālās vēlēšanu komisijas
+          lapas <a href="https://dati.cvk.lv/SV2026/kandidatu-saraksti/">dati.cvk.lv</a>.
+          Vieglās valodas versijas sagatavoja mākslīgais intelekts, pārbaudīja cilvēki.
+        </p>
+        <p>Projektu veido <a href="https://www.pieklustamiba.lv/">Piekļūstamība.lv</a>.</p>
+        <p>
+          Vai tev arī vajag pārvērst tekstu vieglajā
+          valodā? Izmēģini <a href="https://rakstiviegli.lv/">Raksti viegli</a> — rīku,
+          kas latviešu valodas tekstu automātiski pārraksta vieglajā valodā: īsos teikumos
+          un saprotamos vārdos.
+        </p>
+      </div>
+    </footer>
+    <script>
+      const toggle = document.querySelector('.theme-toggle');
+      toggle?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const current =
+          root.dataset.theme ??
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        localStorage.setItem('theme', next);
+      });
+    </script>
+  </body>
+</html>

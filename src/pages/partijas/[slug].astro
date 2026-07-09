@@ -1,0 +1,173 @@
+---
+import { existsSync } from 'node:fs';
+import { getCollection, getEntry, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import parties from '../../data/parties.json';
+
+export async function getStaticPaths() {
+  const easyEntries = await getCollection('easy');
+  return easyEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { easyEntry: entry },
+  }));
+}
+
+const { easyEntry } = Astro.props;
+const party = parties.find((p) => p.slug === easyEntry.id);
+if (!party) throw new Error(`parties.json trūkst ieraksta: ${easyEntry.id}`);
+
+const origEntry = await getEntry('orig', easyEntry.id);
+if (!origEntry) throw new Error(`Trūkst oriģināla teksta: ${easyEntry.id}`);
+
+const { Content: EasyContent, headings } = await render(easyEntry);
+const { Content: OrigContent } = await render(origEntry);
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+
+// Partijas OG attēls sociālajiem medijiem; ja tāda nav — sākumlapas attēls
+const ogImage = existsSync(new URL(`../../../public/og/${party.slug}.png`, import.meta.url))
+  ? `/og/${party.slug}.png`
+  : '/og/sakumlapa.png';
+---
+
+<Layout
+  title={`${party.name} — programma vieglajā valodā | Lasi viegli`}
+  description={`Partijas ${party.name} 2026. gada Saeimas vēlēšanu programma vieglajā valodā — īsi teikumi un saprotami vārdi. Blakus cilnē var salīdzināt ar oriģinālo tekstu.`}
+  ogImage={ogImage}
+>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Atrašanās vieta">
+      <a href="/#partijas">Visas partijas</a>
+      <span aria-hidden="true"> › </span>
+      <span aria-current="page">{party.name}</span>
+    </nav>
+
+    <header class="party-head">
+      <span class="num" aria-hidden="true">{party.n}</span>
+      <h1>{party.name}</h1>
+      <p class="meta">
+        Saraksts Nr. {party.n} · {party.candidates}
+        kandidāti · <a href={party.sourceUrl}>Skatīt CVK lapā</a>
+      </p>
+    </header>
+
+    <div class="toolbar">
+      <div role="tablist" aria-label="Programmas versija">
+        <button
+          role="tab"
+          id="tab-easy"
+          data-label="Vieglajā valodā"
+          aria-selected="true"
+          aria-controls="panel-easy">Vieglajā valodā</button
+        >
+        <button
+          role="tab"
+          id="tab-orig"
+          data-label="Oriģināls"
+          aria-selected="false"
+          aria-controls="panel-orig">Oriģināls</button
+        >
+      </div>
+      <div class="textsize">
+        <span id="ts-label">Teksta izmērs</span>
+        <button type="button" aria-label="Samazināt teksta izmēru" data-scale="-1">A−</button>
+        <button type="button" aria-label="Palielināt teksta izmēru" data-scale="1">A+</button>
+      </div>
+    </div>
+
+    <div class="prog-layout">
+      <div>
+        <div class="prose panel" id="panel-easy" role="tabpanel" aria-labelledby="tab-easy" tabindex="0">
+          <EasyContent />
+        </div>
+
+        <div class="prose panel" id="panel-orig" role="tabpanel" aria-labelledby="tab-orig" tabindex="0" hidden>
+          <div class="readability-note">
+            <span class="icon" aria-hidden="true">i</span>
+            <p>
+              Šis ir partijas iesniegtais programmas teksts. Vārdi nav mainīti. Mēs uzlabojām
+              tikai noformējumu — pievienojām virsrakstus, rindkopas un sarakstus, lai tekstu
+              būtu vieglāk lasīt. <a href={party.sourceUrl}>Oriģināls CVK lapā</a>.
+            </p>
+          </div>
+          <OrigContent />
+        </div>
+      </div>
+
+      {
+        toc.length > 0 && (
+          <nav class="toc" aria-label="Šajā lapā">
+            <span class="label">Šajā lapā</span>
+            <ul>
+              {toc.map((h) => (
+                <li>
+                  <a href={`#${h.slug}`} style={h.depth === 3 ? 'padding-left: 24px;' : undefined}>
+                    {h.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )
+      }
+    </div>
+  </div>
+
+  <button class="to-top" type="button" aria-label="Atgriezties lapas augšā">↑</button>
+
+  <script>
+    const tabs = [
+      document.getElementById('tab-easy'),
+      document.getElementById('tab-orig'),
+    ] as HTMLButtonElement[];
+    const toc = document.querySelector<HTMLElement>('.toc');
+
+    function selectTab(i: number, focus = false) {
+      tabs.forEach((t, j) => {
+        t.setAttribute('aria-selected', String(i === j));
+        const panel = document.getElementById(t.getAttribute('aria-controls')!)!;
+        panel.hidden = i !== j;
+      });
+      if (toc) toc.style.visibility = i === 0 ? 'visible' : 'hidden';
+      if (focus) tabs[i].focus();
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => selectTab(i));
+      tab.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          selectTab((i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length, true);
+        }
+      });
+    });
+
+    // Teksta izmērs: soļi no -1 līdz +2, saglabājas localStorage —
+    // darbojas abās cilnēs un visās partiju lapās
+    let scaleStep = 0;
+    try {
+      scaleStep = Math.min(2, Math.max(-1, parseInt(localStorage.getItem('textScale') || '0', 10) || 0));
+    } catch {}
+    document.querySelectorAll<HTMLButtonElement>('.textsize button[data-scale]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        scaleStep = Math.min(2, Math.max(-1, scaleStep + Number(btn.dataset.scale)));
+        document.documentElement.style.setProperty(
+          '--content-scale',
+          (1 + scaleStep * 0.15).toFixed(2),
+        );
+        try {
+          localStorage.setItem('textScale', String(scaleStep));
+        } catch {}
+      });
+    });
+
+    // Poga "atgriezties lapas augšā": redzama tikai paskrollējot zemāk
+    const toTop = document.querySelector<HTMLButtonElement>('.to-top')!;
+    const onScroll = () => toTop.classList.toggle('visible', window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    toTop.addEventListener('click', () => {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+  </script>
+</Layout>

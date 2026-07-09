@@ -1,0 +1,396 @@
+/*
+ * Saeima 2026 tēma — raksti-viegli dizaina sistēmas tokeni (raksti-viegli-ds/DESIGN.md).
+ * Atkāpes no DS pēc pasūtītāja izvēles: akcents ir Latvijas karoga karmīnsarkanais
+ * (nevis action-blue), logotips Segoe UI fontā, galvenē karoga zīme.
+ */
+
+/* ============ Tokeni ============ */
+:root {
+  --color-brand-primary: #171717;
+  --color-text-primary: var(--color-brand-primary);
+  --color-text-secondary: #454545;
+  --color-text-placeholder: #6c757d;
+  --color-text-inverse: #ffffff;
+  --color-surface-page: #f8f6f3;
+  --color-surface-raised: #ffffff;
+  --color-surface-inverse: #161616;
+  --color-border-default: #e0e0e0;
+  --color-border-strong: #000000;
+
+  /* Latvijas karoga karmīnsarkanais, tumšināts līdz AA kontrastam uz gaišā fona.
+     --color-accent: teksts, saites, pasvītras; --color-accent-fill: pogu pildījums;
+     --color-on-accent: teksts uz pildījuma. */
+  --color-accent: #93262f;
+  --color-accent-fill: #93262f;
+  --color-on-accent: #ffffff;
+  /* Karoga zīmei — oficiālais tonis, nemainās starp tēmām */
+  --color-flag: #9e3039;
+
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-logo: "Segoe UI", "Segoe UI Variable Text", system-ui, sans-serif;
+
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px;
+
+  --radius-sm: 4px; --radius-md: 8px; --radius-full: 9999px;
+
+  --type-h1-size: clamp(2.25rem, 1.565rem + 3.043vw, 4rem);
+  --type-h3-size: clamp(1.5rem, 1.304rem + 0.87vw, 2rem);
+  --type-lead-size: clamp(1.125rem, 1.076rem + 0.217vw, 1.25rem);
+  --type-label-size: 0.875rem;
+  --type-button-size: 1.125rem;
+  --type-logo-size: 1.125rem;
+
+  --content-scale: 1;
+}
+
+/* Tumšā tēma — atvasināta no DS surface-inverse neitrāļiem */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-brand-primary: #f4f4f4;
+    --color-text-secondary: #c0c0c0;
+    --color-text-placeholder: #8d8d8d;
+    --color-surface-page: #161616;
+    --color-surface-raised: #232323;
+    --color-border-default: #3d3d3d;
+    --color-border-strong: #f4f4f4;
+    --color-accent: #f2a0a6;
+    --color-accent-fill: #a8434b;
+  }
+}
+:root[data-theme="light"] {
+  --color-brand-primary: #171717;
+  --color-text-secondary: #454545;
+  --color-text-placeholder: #6c757d;
+  --color-surface-page: #f8f6f3;
+  --color-surface-raised: #ffffff;
+  --color-border-default: #e0e0e0;
+  --color-border-strong: #000000;
+  --color-accent: #93262f;
+  --color-accent-fill: #93262f;
+}
+:root[data-theme="dark"] {
+  --color-brand-primary: #f4f4f4;
+  --color-text-secondary: #c0c0c0;
+  --color-text-placeholder: #8d8d8d;
+  --color-surface-page: #161616;
+  --color-surface-raised: #232323;
+  --color-border-default: #3d3d3d;
+  --color-border-strong: #f4f4f4;
+  --color-accent: #f2a0a6;
+  --color-accent-fill: #a8434b;
+}
+
+/* ============ Bāze ============ */
+* { box-sizing: border-box; }
+html { background: var(--color-surface-page); }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a { color: var(--color-accent); text-underline-offset: 3px; }
+:is(a, button):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+h1, h2, h3 { line-height: 1.25; text-wrap: balance; margin: 0; font-weight: 700; }
+
+.skip-link {
+  position: absolute; left: -999px; top: var(--space-2); z-index: 100;
+  background: var(--color-surface-raised); color: var(--color-accent);
+  padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm);
+}
+.skip-link:focus { left: var(--space-2); }
+
+/* ============ Galvene ============ */
+.site-head {
+  border-bottom: 1px solid var(--color-border-default);
+  background: var(--color-surface-raised);
+}
+.site-head .inner {
+  max-width: 1200px; margin: 0 auto; padding: var(--space-4) var(--space-5);
+  display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap;
+}
+.brand {
+  display: flex; align-items: center; gap: var(--space-3);
+  text-decoration: none; color: var(--color-text-primary);
+}
+.brand .flag {
+  flex: none; width: 28px; height: 18px; border-radius: 2px;
+  border: 1px solid var(--color-border-default);
+  background: linear-gradient(to bottom,
+    var(--color-flag) 40%,
+    #ffffff 40%, #ffffff 60%,
+    var(--color-flag) 60%);
+}
+.brand b {
+  font-family: var(--font-logo);
+  font-weight: 700;
+  font-size: var(--type-logo-size); line-height: 1.333;
+}
+.head-actions { margin-left: auto; display: flex; align-items: center; gap: var(--space-3); }
+.theme-toggle {
+  font: inherit; cursor: pointer;
+  min-width: 44px; min-height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--color-border-default); border-radius: var(--radius-sm);
+  background: var(--color-surface-raised); color: var(--color-text-primary);
+  font-size: 1.1rem; line-height: 1;
+}
+.theme-toggle:hover { border-color: var(--color-accent); }
+:root[data-theme="dark"] .theme-toggle .moon { display: none; }
+:root:not([data-theme="dark"]) .theme-toggle .sun { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .moon { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .sun { display: inline; }
+}
+
+main { flex: 1; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-5); }
+
+/* ============ Sākumlapa ============ */
+.hero { padding: var(--space-8) 0 var(--space-7); max-width: 780px; }
+.hero .eyebrow {
+  display: inline-block; margin-bottom: var(--space-4);
+  font-size: var(--type-label-size);
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+.hero h1 { font-size: var(--type-h1-size); line-height: 1.25; }
+.hero .lede { font-size: var(--type-lead-size); line-height: 1.6; max-width: 36em; margin: var(--space-5) 0 0; }
+.hero .lede p { margin: 0 0 var(--space-3); }
+.hero .actions { display: flex; gap: var(--space-4); margin-top: var(--space-6); flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  text-decoration: none; cursor: pointer;
+  font-family: var(--font-sans); font-size: var(--type-button-size);
+  line-height: 1.556; font-weight: 400;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md); border: 1px solid transparent;
+  min-height: 44px;
+}
+.btn.primary { background: var(--color-accent-fill); color: var(--color-on-accent); }
+.btn.primary:hover { filter: brightness(1.1); }
+.btn.secondary {
+  background: var(--color-surface-raised);
+  border-color: var(--color-accent); color: var(--color-accent);
+}
+.btn.secondary:hover { background: var(--color-accent-fill); border-color: var(--color-accent-fill); color: var(--color-on-accent); }
+
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);
+  padding: var(--space-6) 0 var(--space-2); border-top: 1px solid var(--color-border-default);
+}
+.steps .step { display: flex; gap: var(--space-3); align-items: flex-start; }
+.steps .n {
+  flex: none; width: 36px; height: 36px; border-radius: var(--radius-full);
+  display: grid; place-items: center;
+  border: 1px solid var(--color-border-default); background: var(--color-surface-raised);
+  color: var(--color-accent); font-weight: 700;
+}
+.steps p { margin: var(--space-1) 0 0; }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+
+.party-section { margin-top: var(--space-7); }
+.party-section h2 { font-size: var(--type-h3-size); line-height: 1.5; }
+.party-section .note { color: var(--color-text-secondary); margin: var(--space-2) 0 0; max-width: 60ch; }
+
+.cards {
+  list-style: none; padding: 0;
+  margin: var(--space-5) 0 var(--space-8);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4);
+}
+@media (max-width: 900px) { .cards { grid-template-columns: 1fr; } }
+.card {
+  position: relative;
+  display: grid; grid-template-columns: auto 1fr; gap: var(--space-1) var(--space-4);
+  margin: 0; padding: var(--space-5);
+  border: 1px solid var(--color-border-default); border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+}
+.card:hover { border-color: var(--color-accent); }
+.card .num {
+  grid-row: 1 / span 3;
+  width: 52px; height: 52px;
+  border: 1.5px solid var(--color-border-strong); border-radius: var(--radius-sm);
+  display: grid; place-items: center;
+  font-size: 1.4rem; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.card h3 { font-size: 1.125rem; line-height: 1.4; align-self: center; margin: 0; }
+.card .meta {
+  color: var(--color-text-secondary); font-size: var(--type-label-size);
+  font-variant-numeric: tabular-nums; margin: var(--space-1) 0 0;
+}
+.card .go {
+  margin-top: var(--space-2);
+  width: fit-content;
+  color: var(--color-accent);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+/* Saite pārklāj visu kartīti; DOM tā paliek viena skaidri nosaukta saite */
+.card .go::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius-md); }
+.card .go:focus-visible { outline: none; }
+.card .go:focus-visible::after {
+  outline: 2px solid var(--color-accent); outline-offset: 2px;
+}
+
+/* ============ Kājene ============ */
+.site-foot {
+  margin-top: var(--space-9);
+  background: var(--color-surface-inverse); color: #c6c6c6;
+}
+.site-foot .inner { max-width: 1200px; margin: 0 auto; padding: var(--space-7) var(--space-5); }
+.site-foot p { margin: 0 0 var(--space-2); max-width: 75ch; font-size: var(--type-label-size); line-height: 1.5; }
+.site-foot a { color: #ffffff; }
+
+/* ============ Partijas lapa ============ */
+.crumbs { padding: var(--space-5) 0 0; font-size: var(--type-label-size); color: var(--color-text-secondary); }
+.crumbs a { color: var(--color-text-secondary); }
+.party-head {
+  display: grid; grid-template-columns: auto 1fr; gap: var(--space-2) var(--space-5);
+  align-items: center; padding: var(--space-6) 0 var(--space-5);
+}
+.party-head .num {
+  grid-row: 1 / span 2;
+  width: 64px; height: 64px;
+  border: 2px solid var(--color-border-strong); border-radius: var(--radius-sm);
+  display: grid; place-items: center;
+  font-size: 1.8rem; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.party-head h1 { font-size: var(--type-h3-size); line-height: 1.35; }
+.party-head .meta { color: var(--color-text-secondary); font-size: var(--type-label-size); margin: 0; }
+
+/* Mobilajā skatā numurs ir vienā rindā ar virsrakstu un tā izmērā,
+   nevis liels kvadrāts, kas aizņem pārāk daudz platuma */
+@media (max-width: 640px) {
+  .party-head {
+    gap: var(--space-3);
+    align-items: start;
+  }
+  .party-head .num {
+    grid-row: 1;
+    width: auto;
+    height: auto;
+    min-width: 1.5em;
+    padding: 0 var(--space-2);
+    font-size: var(--type-h3-size);
+    line-height: 1.35;
+  }
+  .party-head .meta { grid-column: 1 / -1; }
+}
+
+/* Cilnes: saraksta apakšlīnija, aktīvais tabs treknrakstā ar akcenta pasvītru */
+.toolbar { display: flex; align-items: flex-end; gap: var(--space-5); flex-wrap: wrap; margin-top: var(--space-4); }
+[role="tablist"] {
+  display: flex; gap: var(--space-5); flex: 1 1 auto;
+  border-bottom: 1px solid var(--color-border-default);
+}
+[role="tab"] {
+  position: relative; margin-bottom: -1px;
+  font: inherit; font-size: 1.0625rem; font-weight: 400;
+  border: 0; background: transparent; color: var(--color-text-secondary);
+  padding: var(--space-2) 0 var(--space-3); cursor: pointer;
+  transition: color .15s;
+}
+[role="tab"]:hover { color: var(--color-text-primary); }
+[role="tab"][aria-selected="true"] { font-weight: 700; color: var(--color-text-primary); }
+[role="tab"][aria-selected="true"]::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+}
+/* Rezervē vietu treknrakstam, lai cilnes nelēkā */
+[role="tab"]::before {
+  content: attr(data-label); display: block; height: 0;
+  font-weight: 700; visibility: hidden; overflow: hidden;
+}
+.textsize {
+  display: flex; align-items: center; gap: var(--space-2);
+  color: var(--color-text-secondary); font-size: var(--type-label-size);
+  padding-bottom: var(--space-2);
+}
+.textsize button {
+  font-family: var(--font-sans); font-weight: 700; cursor: pointer;
+  min-width: 44px; min-height: 38px;
+  border: 1px solid var(--color-accent); border-radius: var(--radius-sm);
+  background: var(--color-surface-raised); color: var(--color-accent);
+}
+.textsize button:hover { background: var(--color-accent-fill); border-color: var(--color-accent-fill); color: var(--color-on-accent); }
+.textsize button:first-of-type { font-size: .85rem; }
+.textsize button:last-of-type { font-size: 1.05rem; }
+
+.prog-layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: var(--space-8); margin-top: var(--space-4); }
+@media (max-width: 1000px) { .prog-layout { grid-template-columns: 1fr; } .toc { display: none; } }
+
+.prose { font-size: calc(1rem * var(--content-scale)); line-height: 1.5; max-width: 65ch; }
+.prose h2 { font-size: 1.5em; line-height: 1.35; margin: 1.8em 0 .6em; }
+.prose h3 { font-size: 1.2em; line-height: 1.4; margin: 1.5em 0 .5em; }
+.prose p { margin: 0 0 1em; }
+.prose ul, .prose ol { padding-left: 1.4em; margin: 0 0 1em; }
+.prose li { margin-bottom: .5em; }
+.panel[hidden] { display: none; }
+
+.readability-note {
+  display: flex; gap: var(--space-3); align-items: flex-start;
+  margin: var(--space-5) 0; padding: var(--space-4) var(--space-5);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  font-size: var(--type-label-size); line-height: 1.5; max-width: 65ch;
+}
+.readability-note .icon {
+  flex: none; margin-top: 1px;
+  width: 20px; height: 20px; border-radius: var(--radius-full);
+  display: grid; place-items: center;
+  background: var(--color-accent-fill); color: var(--color-on-accent);
+  font-size: .75rem; font-weight: 600;
+}
+.readability-note p { margin: 0; }
+
+.toc { position: sticky; top: var(--space-5); align-self: start; padding-top: var(--space-6); }
+.toc .label {
+  font-size: .8rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--color-text-secondary);
+}
+.toc ul { list-style: none; padding: 0; margin: var(--space-3) 0 0; font-size: var(--type-label-size); }
+.toc li { margin: 0 0 2px; }
+.toc a {
+  display: block; padding: var(--space-2) var(--space-3);
+  border-left: 2px solid var(--color-border-default);
+  color: var(--color-text-secondary); text-decoration: none;
+}
+.toc a:hover { color: var(--color-accent); border-left-color: var(--color-accent); }
+
+/* Poga "atgriezties lapas augšā" — parādās, kad lapa ir paskrollēta zemāk */
+.to-top {
+  position: fixed; right: var(--space-4); bottom: var(--space-4); z-index: 40;
+  width: 48px; height: 48px; border-radius: var(--radius-full);
+  border: 0; cursor: pointer;
+  display: grid; place-items: center;
+  background: var(--color-accent-fill); color: var(--color-on-accent);
+  font-size: 1.3rem; line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+}
+.to-top.visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { filter: brightness(1.1); }
+
+/* ============ Vienkāršas satura lapas (Par projektu, 404) ============ */
+.page { max-width: 65ch; padding: var(--space-6) 0 var(--space-8); }
+.page h1 { font-size: var(--type-h3-size); margin-bottom: var(--space-5); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

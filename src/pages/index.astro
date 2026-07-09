@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import parties from '../data/parties.json';
+---
+
+<Layout
+  title="Lasi viegli — Saeimas vēlēšanu 2026 partiju programmas vieglajā valodā"
+  description="2026. gada Saeimas vēlēšanu visu 14 partiju programmas vieglajā valodā, ar iespēju salīdzināt ar oriģinālo tekstu."
+>
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">2026. gada 15. Saeimas vēlēšanas</span>
+      <h1>Partiju programmas, kuras var izlasīt un saprast ikviens</h1>
+      <div class="lede">
+        <p>Šogad Latvijā ir Saeimas vēlēšanas. Vēlēšanās piedalās 14 partijas.</p>
+        <p>Katrai partijai ir programma. Programma stāsta, ko partija grib darīt.</p>
+        <p>
+          Mēs katru programmu pārrakstījām <strong>vieglajā valodā</strong>.
+          Vieglā valoda ir īsi teikumi un saprotami vārdi.
+        </p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="#partijas">Izvēlēties partiju</a>
+        <a class="btn secondary" href="/par-projektu/">Kā mēs to izdarījām?</a>
+      </div>
+    </section>
+
+    <section class="steps" aria-label="Kā lietot šo lapu">
+      <div class="step">
+        <span class="n" aria-hidden="true">1</span>
+        <p><strong>Izvēlies partiju</strong> sarakstā zemāk. Partijas ir tādā pašā secībā kā vēlēšanu zīmē.</p>
+      </div>
+      <div class="step">
+        <span class="n" aria-hidden="true">2</span>
+        <p><strong>Izlasi programmu</strong> vieglajā valodā. Grūtie vārdi ir paskaidroti.</p>
+      </div>
+      <div class="step">
+        <span class="n" aria-hidden="true">3</span>
+        <p><strong>Salīdzini ar oriģinālu.</strong> Blakus cilnē ir partijas īstais teksts.</p>
+      </div>
+    </section>
+
+    <section class="party-section" id="partijas">
+      <h2>Izvēlies partiju</h2>
+      <p class="note">Saraksts ir vēlēšanu numuru secībā. Mēs nevienu partiju neizceļam un nevienu neiesakām.</p>
+      <ul class="cards" role="list">
+        {
+          parties.map((p) => (
+            <li class="card">
+              <span class="num" aria-hidden="true">{p.n}</span>
+              <h3 id={`pname-${p.n}`}>{p.name}</h3>
+              <p class="meta">
+                Saraksts Nr. {p.n} · {p.candidates} kandidāti · lasīšana ~{p.minutes} min
+              </p>
+              <a
+                class="go"
+                id={`go-${p.n}`}
+                href={`/partijas/${p.slug}/`}
+                aria-labelledby={`go-${p.n} pname-${p.n}`}
+              >
+                Lasīt vieglajā valodā
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Layout>
