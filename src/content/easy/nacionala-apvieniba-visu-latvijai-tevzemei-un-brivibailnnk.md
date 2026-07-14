@@ -40,7 +40,7 @@ Tas attiecas uz valodu, kultūru, izglītību un informatīvo telpu.
 - Vidusskolā obligāti mācīs finanšu pratību un uzņēmējdarbības pamatus. Finanšu pratība ir prasme gudri rīkoties ar naudu.
 - Skolēni visos Latvijas reģionos varēs mācīties tiešsaistes stundās pie Latvijas labākajiem skolotājiem.
 - Mēs ieguldīsim nākamo līderu un talantu izcilībā. Mēs arī cilvēcīgi un praktiski palīdzēsim katram bērnam, kuram ir grūtības mācībās vai dzīvē.
-- Skolas zinās, kā rīkoties briesmu gadījumā. Skolās būs drošas telpas.
+- Skolas zinās, kā rīkoties apdraudējumu gadījumā. Skolās būs drošas telpas.
 - Krīzes laikā skolas varēs uzreiz pāriet uz attālinātām mācībām.
 - Valsts vairāk pasūtīs pētījumus par latviešu valodu, vēsturi un kultūru.
 
@@ -68,7 +68,7 @@ Tam vajag stipru armiju, skaidru imigrācijas politiku un stipru tiesiskumu.
 
 ### Valsts militārā aizsardzība
 
-- Aizsardzībai tērēsim vairāk nekā 5% no iekšzemes kopprodukta. Iekšzemes kopprodukts ir visu valstī saražoto preču un pakalpojumu vērtība.
+- Aizsardzībai tērēsim vairāk nekā 5% no iekšzemes kopprodukta. Iekšzemes kopprodukts ir visu valstī gadā saražoto preču un pakalpojumu vērtība.
 - Mēs attīstīsim militāro ražošanu Latvijā.
 - Mēs turpināsim attīstīt Nacionālos bruņotos spēkus — Latvijas armiju. Īpaši attīstīsim pretgaisa aizsardzību, dronus, aizsardzību pret droniem, sauszemes spēkus un krasta apsardzību.
 - Mēs apmācīsim vairāk rezervistu krīzes situācijām. Rezervisti ir apmācīti cilvēki, kas ikdienā nedienē armijā.
@@ -87,7 +87,7 @@ Tam vajag stipru armiju, skaidru imigrācijas politiku un stipru tiesiskumu.
 
 - Mēs ieviesīsim stingrus noteikumus un daudz stingrāku kontroli trešo valstu pilsoņiem. Trešās valstis ir valstis ārpus Eiropas Savienības.
 - Mēs neļausim ekonomiskajiem imigrantiem ļaunprātīgi izmantot sistēmu, lai paliktu Latvijā.
-- Uzturēšanās atļaujām trešo valstu pilsoņiem būs stingras kvotas. Kvota ir noteikts maksimālais cilvēku skaits.
+- Uzturēšanās atļaujām trešo valstu pilsoņiem būs stingras kvotas. Kvota ir noteikts lielākais atļautais skaits.
 - Mēs veicināsim, lai Latvijai nelojāli cilvēki un Krievijas pilsoņi izceļo no valsts.
 - Augstskolas aicinās ārvalstu studentus no Eiropas Savienības, NATO un OECD valstīm. Augstskolas aicinās arī latviešu jauniešus no ārzemēm.
 - Mēs neatbalstīsim Eiropas Savienības lēmumus, kas liek Latvijai uzņemt imigrantus.
@@ -104,20 +104,20 @@ Tam vajag stipru armiju, skaidru imigrācijas politiku un stipru tiesiskumu.
 
 Ekonomikas izaugsme nozīmē darba vietas reģionos, modernu infrastruktūru un uzņēmumus Latvijā.
 
-Mūsu mērķis: līdz 2030. gadam iekšzemes kopprodukts uz 1 iedzīvotāju sasniedz 80% no Eiropas Savienības vidējā līmeņa.
+Mūsu mērķis ir, lai līdz 2030. gadam iekšzemes kopprodukts uz 1 iedzīvotāju sasniegtu 80% no Eiropas Savienības vidējā līmeņa.
 
 ### Nodokļi un valsts nauda
 
 - Uzņēmējiem būs paredzama un konkurētspējīga nodokļu politika. Mēs to veidosim kopā ar darba devēju organizācijām.
 - Mazajiem un vidējiem uzņēmumiem būs atvieglots nodokļu režīms.
-- Eiropas Savienības fondu naudu ieguldīsim aizsardzībā un augošās ekonomikas nozarēs, nevis patēriņa pabalstos.
+- Eiropas Savienības fondu naudu ieguldīsim aizsardzībā un augošās ekonomikas nozarēs. Šo naudu neizmantosim atbalstam ikdienas patēriņam.
 - Valsts iepirkumu dati būs atklātāki. Ar mākslīgā intelekta rīkiem mēs atklāsim sadārdzinājumus un korupciju.
 - Mēs skaidri rādīsim, kā valsts tērē budžeta naudu.
 
 ### Investīcijas un atbalsts uzņēmumiem
 
-- Investīciju fonds atbalstīs ražīgus uzņēmumus, kas eksportē. Šajos uzņēmumos algas ir lielākas par vidējo algu valstī.
-- Militārās ražošanas investīcijas Latvijā apstiprinās ātrāk nekā citās reģiona valstīs.
+- Investīciju fonds atbalstīs ražīgus uzņēmumus, kas eksportē. Atbalstu saņems uzņēmumi, kuros algas ir lielākas par vidējo algu valstī.
+- Latvijā apstiprinās militārās ražošanas investīcijas ātrāk nekā citās reģiona valstīs.
 - Mēs atbalstīsim latvisku uzņēmējdarbības kultūru: amatniekus, ģimenes uzņēmumus, kooperatīvus un mājražotājus.
 - Mēs vairāk atbalstīsim jaunuzņēmumus. Jaunuzņēmums ir jauns uzņēmums, kas strauji aug.
 - Zinātnieki, izgudrotāji un uzņēmēji strādās ciešāk kopā.
@@ -176,12 +176,12 @@ Katrs cilvēks arī pats atbild par savu ģimeni un mūsu tautas nākotni.
 
 - Tēvi saņems garāku paternitātes atvaļinājumu. Paternitātes atvaļinājums ir brīvdienas tēvam pēc bērna piedzimšanas.
 - Mēs veicināsim, lai abi vecāki savā starpā dala bērna kopšanas atvaļinājumu.
-- Mēs veidosim kampaņas un atbalsta programmas, lai tēvi aktīvi piedalās bērnu audzināšanā.
+- Mēs veidosim kampaņas un atbalsta programmas, lai tēvi aktīvi piedalītos bērnu audzināšanā.
 - Mēs rūpēsimies par vīriešu veselību. Svarīgas ir profilakses pārbaudes, psihiskā veselība un pašnāvību riska mazināšana.
 
 ### Veselības aprūpe
 
-- Rindas pie ārstiem speciālistiem būs īsākas. Mēs apvienosim valsts un privāto naudu, lai veselības aprūpe ir efektīvāka.
+- Rindas pie ārstiem speciālistiem būs īsākas. Mēs apvienosim valsts un privāto finansējumu, lai veselības aprūpe būtu efektīvāka.
 - Ģimenes ārsts būs pieejams visos novados. Varēs saņemt arī attālinātas konsultācijas.
 - Mēs ieviesīsim programmu "Vesels mūžs". Tās ir obligātas profilakses pārbaudes ar valsts atbalstu.
 - Vairāk cilvēku varēs saņemt psihiskās veselības palīdzību. Īpaši bērni, jaunieši un vecāki cilvēki.
@@ -190,7 +190,7 @@ Katrs cilvēks arī pats atbild par savu ģimeni un mūsu tautas nākotni.
 ### Seniori un pensijas
 
 - Seniori varēs brīvprātīgi strādāt. Mēs novērsīsim netaisnīgu attieksmi pret darbiniekiem vecuma dēļ.
-- 2. pensiju līmeņa uzkrājumu ģimene mantos automātiski.
+- Ģimene automātiski mantos 2. pensiju līmeņa uzkrājumu. 2. pensiju līmenis ir nauda, ko darba laikā automātiski uzkrāj pensijai.
 - Ar nodokļu atvieglojumiem mudināsim cilvēkus veidot 3. pensiju līmeņa uzkrājumus.
 - Seniori reģionos varēs saņemt aprūpes pakalpojumus.
 

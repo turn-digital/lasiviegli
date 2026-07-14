@@ -18,14 +18,17 @@ Mūsu mērķis ir atjaunot cilvēku uzticību valstij. Valsts attīstības centr
 
 Mēs atjaunosim ekonomisko sadarbību ar Krieviju un Baltkrieviju. To darīsim jomās, kur tas atbilst Latvijas interesēm.
 
-Šī sadarbība palīdzēs:
+Šī sadarbība dos vairākus ieguvumus.
 
-- attīstīt tranzīta nozari. Tranzīts ir preču pārvadāšana caur Latviju uz citām valstīm.
-- atbalstīt rūpniecības izaugsmi.
-- vairāk pārdot Latvijas lauksaimniecības produkciju uz citām valstīm.
-- radīt jaunas darba vietas Latvijas iedzīvotājiem.
+Attīstīsies tranzīta nozare. Tranzīts ir preču pārvadāšana caur Latviju uz citām valstīm.
 
-Mēs pārskatīsim Latvijas dalību ekonomiskajās sankcijās. Sankcijas ir aizliegumi tirgoties ar kādu valsti.
+Attīstīsies rūpniecība.
+
+Latvija vairāk pārdos savu lauksaimniecības produkciju citām valstīm.
+
+Latvijas iedzīvotājiem radīsies jaunas darba vietas.
+
+Mēs pārskatīsim Latvijas dalību ekonomiskajās sankcijās. Sankcijas ir sodi un ierobežojumi valstij.
 
 - Izvērtēsim, kā sankcijas ietekmē Latvijas ekonomiku.
 - Nepieļausim lēmumus, kas kaitē Latvijas uzņēmumiem un iedzīvotājiem.
@@ -41,9 +44,9 @@ Mēs atjaunosim valsts neitralitāti. Neitralitāte nozīmē, ka Latvija nepieda
 
 Valsts budžeta naudu vispirms tērēsim Latvijas iedzīvotāju vajadzībām:
 
-- veselības aprūpei.
-- izglītībai.
-- sociālajai aizsardzībai.
+- veselības aprūpei
+- izglītībai
+- sociālajai aizsardzībai
 - infrastruktūrai. Infrastruktūra ir ceļi, tilti un citas svarīgas būves.
 
 Mēs veidosim neatkarīgāku enerģētikas politiku:
@@ -66,9 +69,9 @@ Mēs pārskatīsim krimināllietas, kurās ir politiskas vajāšanas pazīmes. P
 
 Mēs dosim plašākas iespējas lietot krievu valodu:
 
-- uzņēmējdarbībā.
-- sabiedriskajā dzīvē.
-- ikdienas saziņā.
+- uzņēmējdarbībā
+- sabiedriskajā dzīvē
+- ikdienas saziņā
 
 Mēs likvidēsim nepilsoņa statusu. Nepilsoņi ir Latvijas pastāvīgie iedzīvotāji, kuriem nav Latvijas pilsonības.
 
@@ -97,7 +100,7 @@ Mēs ieviesīsim nulles budžeta principu. Tas nozīmē, ka visus izdevumus regu
 - Regulāri pārskatīsim visas budžeta pozīcijas.
 - Katram izdevumam būs vajadzīgs pamatojums.
 
-Mēs samazināsim birokrātiju. Birokrātija ir sarežģīta un lēna lietu kārtošana iestādēs.
+Mēs samazināsim birokrātiju.
 
 Mēs apvienosim vairākas ministrijas:
 
@@ -116,7 +119,7 @@ Mēs ieviesīsim tautas vēlētu Valsts prezidentu:
 - Valsts prezidentu tiešās vēlēšanās ievēlēs Latvijas pilsoņi.
 - Cilvēki vairāk piedalīsies valsts pārvaldē.
 - Prezidentam būs lielāka atbildība vēlētāju priekšā.
-- Izvērtēsim, kādi grozījumi vajadzīgi Satversmē. Satversme ir Latvijas galvenais likums.
+- Izvērtēsim, kādi grozījumi Satversmē vajadzīgi, lai ieviestu tiešas prezidenta vēlēšanas. Satversme ir Latvijas galvenais likums.
 
 4 gadu laikā mēs samazināsim valsts pārvaldi par 30%:
 
@@ -131,13 +134,13 @@ Mēs nodrošināsim Latvijas ģimenēm pieejamu elektroenerģiju:
 
 Mēs izvērtēsim valsts parāda restrukturizāciju. Restrukturizācija nozīmē mainīt parāda atmaksas noteikumus.
 
-Mēs samazināsim PVN pamatpārtikas produktiem līdz 12%. PVN ir pievienotās vērtības nodoklis.
+Mēs samazināsim PVN pamatpārtikas produktiem līdz 12%. PVN ir pievienotās vērtības nodoklis. To maksā, pērkot preces un pakalpojumus.
 
 Mēs samazināsim PVN recepšu zālēm līdz 5%.
 
 Mēs likvidēsim Sabiedrības integrācijas fondu.
 
-Mēs atcelsim nekustamā īpašuma nodokli vienīgajam mājoklim. Ja cilvēkam ir tikai 1 mājoklis, par to šis nodoklis nebūs jāmaksā.
+Mēs atcelsim nekustamā īpašuma nodokli vienīgajam mājoklim.
 
 ## Veselības aprūpe
 
@@ -188,9 +191,9 @@ Mēs radīsim labus apstākļus, lai Latvijā atgrieztos kvalificēti speciālis
 
 Mēs stiprināsim sociālo aizsardzību:
 
-- pensionāriem.
-- daudzbērnu ģimenēm.
-- cilvēkiem ar invaliditāti.
-- citiem cilvēkiem, kuriem draud nabadzība.
+- pensionāriem
+- daudzbērnu ģimenēm
+- cilvēkiem ar invaliditāti
+- citiem cilvēkiem, kuriem draud nabadzība
 
 Mēs nodrošināsim visiem Latvijas iedzīvotājiem cilvēka cienīgu dzīvi.
