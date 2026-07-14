@@ -88,9 +88,13 @@ Tiks ieviests vienots un integrēts medicīnas izglītības process, kas vērsts
 
 Bagātību rada brīvi un drosmīgi uzņēmēji, nevis ierēdņi. Mēs esam par vietējo uzņēmēju un kapitālu, nevis ārvalstu lētā darbaspēka importu.
 
-Latvija – Eiropas nodokļu un investīciju centrs Mēs pārveidosim Latvijas nodokļu politiku par konkurētspējīgāko reģionā, lai piesaistītu ārvalstu investīcijas, uzņēmumus un nodokļu rezidentus. Lai Latvija kļūtu par pievilcīgāko vietu biznesa attīstībai, mēs samazināsim kapitāla pieauguma nodokli un uzņēmumu peļņas sadales nodokli (UIN) līdz 15%. Zemākas likmes nodrošinās lielākus nodokļu ieņēmumus ilgtermiņā, jo uzņēmēji un kapitāls izvēlēsies palikt un maksāt nodokļus Latvijā. Īpaši mērķtiecīgu programmu vērsīsim uz ārvalstu investoriem un uzņēmējiem, radot vienkāršus un pievilcīgus nosacījumus, lai viņi izvēlētos Latviju kā savu pamata nodokļu rezidenci un holdinga centru.
+### Latvija – Eiropas nodokļu un investīciju centrs
 
-Brīvprātīgs 2. pensiju līmenis un iedzīvotāju izvēles brīvība Mēs pārveidosim 2. fondēto pensiju līmeni par pilnībā brīvprātīgu, izbeidzot banku lobiju un to neremdināmo apetīti uz iedzīvotāju uzkrājumu rēķina. Ikvienam strādājošajam ir jābūt tiesībām pašam lemt par savu nopelnīto naudu. Mēs nodrošināsim izvēles brīvību: turpināt veikt iemaksas, atstāt jau uzkrāto kapitālu esošajā plānā vai arī izņemt uzkrāto naudu un rīkoties ar to pašam. Valsts nedrīkst piespiest cilvēkus barot finanšu sektoru.
+Mēs pārveidosim Latvijas nodokļu politiku par konkurētspējīgāko reģionā, lai piesaistītu ārvalstu investīcijas, uzņēmumus un nodokļu rezidentus. Lai Latvija kļūtu par pievilcīgāko vietu biznesa attīstībai, mēs samazināsim kapitāla pieauguma nodokli un uzņēmumu peļņas sadales nodokli (UIN) līdz 15%. Zemākas likmes nodrošinās lielākus nodokļu ieņēmumus ilgtermiņā, jo uzņēmēji un kapitāls izvēlēsies palikt un maksāt nodokļus Latvijā. Īpaši mērķtiecīgu programmu vērsīsim uz ārvalstu investoriem un uzņēmējiem, radot vienkāršus un pievilcīgus nosacījumus, lai viņi izvēlētos Latviju kā savu pamata nodokļu rezidenci un holdinga centru.
+
+### Brīvprātīgs 2. pensiju līmenis un iedzīvotāju izvēles brīvība
+
+Mēs pārveidosim 2. fondēto pensiju līmeni par pilnībā brīvprātīgu, izbeidzot banku lobiju un to neremdināmo apetīti uz iedzīvotāju uzkrājumu rēķina. Ikvienam strādājošajam ir jābūt tiesībām pašam lemt par savu nopelnīto naudu. Mēs nodrošināsim izvēles brīvību: turpināt veikt iemaksas, atstāt jau uzkrāto kapitālu esošajā plānā vai arī izņemt uzkrāto naudu un rīkoties ar to pašam. Valsts nedrīkst piespiest cilvēkus barot finanšu sektoru.
 
 Katram jaunam uzņēmumam tiks piemērotas 270 dienu atliktas nodokļu brīvdienas, ļaujot biznesam nostāties uz kājām pirms nodevu maksāšanas.
 
