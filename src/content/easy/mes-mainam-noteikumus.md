@@ -221,7 +221,7 @@ Latgalē un Alūksnes novadā ieviesīsim īpašu ekonomisko režīmu.
 
 Tas apturēs pierobežas iztukšošanos un stiprinās valsts drošību.
 
-Mēs vienosimies ar Eiropas Komisiju samazināt PVN šajā zonā līdz 10%.
+Mēs vienosimies ar Eiropas Komisiju samazināt PVN šajā zonā līdz 10%. PVN ir pievienotās vērtības nodoklis. To maksā, pērkot preces un pakalpojumus.
 
 Uzņēmumi, kas iegulda naudu un rada darba vietas pierobežā, saņems uzņēmumu ienākuma nodokļa atlaides. Atlaides būs uz 5 līdz 10 gadiem.
 
